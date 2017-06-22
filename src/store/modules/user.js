@@ -1,5 +1,7 @@
 const user = {
-  state: {},
+  state: {
+    token: null
+  },
   mutations: {},
   actions: {},
   getters: {}
