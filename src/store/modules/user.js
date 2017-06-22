@@ -1,6 +1,6 @@
 const user = {
   state: {
-    token: null
+    token: 'xxxx'
   },
   mutations: {},
   actions: {},

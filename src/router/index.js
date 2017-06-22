@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/store'
 
-import MainLayout from '@/views/layouts/MainLayout'
 import UserLayout from '@/views/layouts/userLayout'
 
 import Login from '@/views/pages/auth/login'
@@ -14,18 +13,15 @@ Vue.use(Router)
 const routerMap = [
   {
     path: '/',
-    component: MainLayout,
-    redirect: '/',
+    name: 'home',
+    component: Home,
     children: [
+      // 用户中心
       {
-        path: '/',
-        name: 'home',
-        component: Home
-      }, {
         path: '/user',
         component: UserLayout,
         redirect: '/user/profile',
-        children: [
+        children: [// 用户中心-个人页面
           {
             path: 'profile',
             name: 'profile',
@@ -37,10 +33,15 @@ const routerMap = [
         ]
       }
     ]
-  }, {
+  },
+  // 登录页面
+  {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    meta: {
+      requiresAuth: false
+    }
   }
 ]
 
@@ -60,7 +61,11 @@ router.beforeEach((to, from, next) => {
       })
     }
   } else {
-    next()
+    if (!to.meta.requiresAuth && to.path === '/login') {
+      next({path: '/'})
+    } else {
+      next()
+    }
   }
 })
 

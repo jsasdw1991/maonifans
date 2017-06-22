@@ -1,11 +1,14 @@
 <template>
-  <div id="home">
-    这是主页
-  </div>
+  <main-layout></main-layout>
 </template>
 <script>
+import MainLayout from '@/views/layouts/MainLayout'
+
 export default {
   name: "home",
+  components: {
+    MainLayout
+  },
   data: function data() {
     return {
     }
