@@ -7,7 +7,6 @@ export default {
   name: "home",
   data: function data() {
     return {
-
     }
   }
 }

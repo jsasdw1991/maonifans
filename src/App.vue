@@ -1,14 +1,23 @@
 <template>
-  <div id="app">
+
+<div class="app" id="app">
     <router-view></router-view>
-  </div>
+</div>
+
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
-</script>
 
-<style>
-</style>
+export default {
+    name: 'app',
+    mounted: function mounted() {
+      this.init()
+    },
+    methods: {
+      init: function() {
+        console.log('app', this.$store)
+      }
+    }
+}
+
+</script>
