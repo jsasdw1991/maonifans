@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    这是主页
   </div>
 </template>
 <script>
